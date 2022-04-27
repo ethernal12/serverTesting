@@ -4,7 +4,7 @@
   "description": "Readme file.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "kill-port 3000 && cd server && npm run db && START /B npm test && cd .. && timeout 4 && mocha "
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/ethernal12/serverTesting#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "kill-port": "^1.6.1",
     "mocha": "^9.2.2"
   }
 }
