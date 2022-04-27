@@ -3,7 +3,7 @@ const axios = require("axios").default;
 
 const req = axios.create({
     baseURL: 'http://localhost:3000',
-    timeout: 1000
+    timeout: 10000
 });
 
 
@@ -25,7 +25,7 @@ describe("GET /appointments", () => {
 
 
     })
-    it("Should have right JSON schema.", () => {
+    it("Should have right JSON schema for response.", () => {
         console.log(this.res);
         assert(false, "This should be true statement.");
 
