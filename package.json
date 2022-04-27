@@ -1,0 +1,22 @@
+{
+  "name": "servertesting",
+  "version": "1.0.0",
+  "description": "Readme file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethernal12/serverTesting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethernal12/serverTesting/issues"
+  },
+  "homepage": "https://github.com/ethernal12/serverTesting#readme",
+  "dependencies": {
+    "mocha": "^9.2.2"
+  }
+}
