@@ -1,0 +1,24 @@
+{
+  "name": "servertesting",
+  "version": "1.0.0",
+  "description": "Readme file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "kill-port 3000 && cd server && npm run db && START /B npm test && cd .. && timeout 4 && mocha "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethernal12/serverTesting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethernal12/serverTesting/issues"
+  },
+  "homepage": "https://github.com/ethernal12/serverTesting#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "kill-port": "^1.6.1",
+    "mocha": "^9.2.2"
+  }
+}
