@@ -16,28 +16,28 @@ var app = express();
 
 app.use(cors());
 app.use(express.json());
-bodyLogger(app, {
-  timezone: false,
-  logReqUserAgent: false,
-  logReqHeaderList: false,
-  logAllReqHeader: false,
-  logIP: false,
-  skip: (req, res) => {
-    return req.method === 'GET';
-  }
-});
-bodyLogger(app, {
-  timezone: false,
-  logReqUserAgent: false,
-  logReqHeaderList: false,
-  logAllReqHeader: false,
-  logIP: false,
-  logRequestBody: false,
-  logResponseBody: false,
-  skip: (req, res) => {
-    return req.method !== 'GET';
-  }
-});
+// bodyLogger(app, {
+//   timezone: false,
+//   logReqUserAgent: false,
+//   logReqHeaderList: false,
+//   logAllReqHeader: false,
+//   logIP: false,
+//   skip: (req, res) => {
+//     return req.method === 'GET';
+//   }
+// });
+// bodyLogger(app, {
+//   timezone: false,
+//   logReqUserAgent: false,
+//   logReqHeaderList: false,
+//   logAllReqHeader: false,
+//   logIP: false,
+//   logRequestBody: false,
+//   logResponseBody: false,
+//   skip: (req, res) => {
+//     return req.method !== 'GET';
+//   }
+// });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
