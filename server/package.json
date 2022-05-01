@@ -6,7 +6,7 @@
     "start": "set DEBUG=bills:server & set DB=development & nodemon ./bin/www",
     "production": "set DEBUG=bills:server & set DB=production & pm2 node ./bin/www",
     "db": "del /f db.s3db && sequelize db:migrate && sequelize db:seed:all",
-    "test": "set DEBUG=bills:server & set DB=development & node ./bin/www"
+    "test": "set DEBUG= & set DB=development & node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
