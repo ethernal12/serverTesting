@@ -753,7 +753,7 @@ describe("GET /connections", () => {
 
         };
         assert.equal(this.res.data.length, postResId, "Response length must equal post response id.");
-        assert(exists, "Flag must equal true.");
+        assert(exists, "Exists must equal true.");
 
 
     })
@@ -1624,7 +1624,7 @@ describe("GET /connections", () => {
 
         };
         assert.equal(this.res.data.length, initialResLength, "Response length must equal post response id.");
-        assert(!exists, "Flag must equal false.");
+        assert(!exists, "Exists must equal false.");
 
 
     })
