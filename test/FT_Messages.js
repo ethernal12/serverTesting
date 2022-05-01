@@ -11,7 +11,7 @@ const req = axios.create({
 
 let initialResLength;
 let postResId;
-let putTitle = "message_put_title"
+let putTitle = "messages_put_title"
 
 describe("GET / messages", () => {
 
