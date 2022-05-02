@@ -40,7 +40,7 @@ describe("GET /connections", () => {
         const schema = {
             "type": "array",
             "items": [
-
+        
                 {
                     "type": "object",
                     "properties": {
@@ -125,7 +125,7 @@ describe("GET /connections", () => {
                                     ]
                                 }
                             ]
-
+        
                         },
                         "messages": {
                             "type": "array",
@@ -185,7 +185,7 @@ describe("GET /connections", () => {
                                         "payment_id"
                                     ]
                                 }
-
+        
                             ]
                         },
                         "appointments": {
@@ -242,7 +242,7 @@ describe("GET /connections", () => {
                                         "connection_id"
                                     ]
                                 }
-
+        
                             ]
                         },
                         "payments": {
@@ -302,9 +302,9 @@ describe("GET /connections", () => {
                         "appointments",
                         "payments"
                     ]
-
+        
                 }
-
+        
             ]
         };
 
