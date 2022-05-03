@@ -11,7 +11,7 @@ const req = axios.create({
 
 let initialResLength;
 let postResId;
-let putNotes = "payment_put_notes"
+let putNotes = "payment_update_notes";
 
 describe("GET /payments", () => {
 
