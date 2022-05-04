@@ -1,7 +1,7 @@
 var Ajv = require("ajv")
 var ajv = new Ajv({ strictTuples: false })
 
-const import_schema = require('./fetch_schema.js');
+const import_schema = require('../schemas/payments_schema.js');
 const assert = require("assert");
 const axios = require("axios").default;
 
@@ -38,7 +38,7 @@ describe("GET /payments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -93,7 +93,7 @@ describe("POST /payments", () => {
 
     it("Should have the right JSON schema for response.", () => {
 
-        const schema = import_schema.add("payments","POST");
+        const schema = import_schema.addMethod("POST");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -139,7 +139,7 @@ describe("GET /payments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","GET");
+        const schema = import_schema.addMethod("GET");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -209,7 +209,7 @@ describe("PUT /payments/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","PUT");
+        const schema = import_schema.addMethod("PUT");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -258,7 +258,7 @@ describe(`GET /payments/id`, () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","GET_ID");
+        const schema = import_schema.addMethod("GET_ID");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -307,7 +307,7 @@ describe("DEL /payments/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","DELETE");
+        const schema = import_schema.addMethod("DELETE");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -354,7 +354,7 @@ describe("GET /payments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("payments","GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
