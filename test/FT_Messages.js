@@ -1,6 +1,7 @@
 var Ajv = require("ajv")
 var ajv = new Ajv({ strictTuples: false })
 
+const import_schema = require('./fetch_schema.js');
 const assert = require("assert");
 const axios = require("axios").default;
 
@@ -36,56 +37,7 @@ describe("GET / messages", () => {
 
     it("Should have the right JSON schema for response.", () => {
 
-
-        const schema = {
-
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "send_at": {
-                            "type": "string"
-                        },
-                        "sms_state": {
-                            "type": "string"
-                        },
-                        "email_state": {
-                            "type": "string"
-                        },
-                        "notes": {
-                            "type": "string"
-                        },
-                        "created_at": {
-                            "type": "string"
-                        },
-                        "updated_at": {
-                            "type": "string"
-                        },
-                        "appointment_id": {
-                            "type": "integer"
-                        },
-                        "connection_id": {
-                            "type": "integer"
-                        },
-                        "payment_id": {
-                            "type": "null"
-                        }
-                    }
-
-                }
-            ]
-        };
-
+        const schema = import_schema.add("messages","GET");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -103,9 +55,6 @@ describe("GET / messages", () => {
 
 
     })
-
-
-
 
 
 })
@@ -144,58 +93,7 @@ describe("POST /messages", () => {
 
     it("Should have the right JSON schema for response.", () => {
 
-        const schema = {
-
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "send_at": {
-                    "type": "null"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "sms_state": {
-                    "type": "string"
-                },
-                "email_state": {
-                    "type": "string"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "appointment_id": {
-                    "type": "integer"
-                },
-                "connection_id": {
-                    "type": "integer"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "send_at",
-                "title",
-                "body",
-                "sms_state",
-                "email_state",
-                "notes",
-                "appointment_id",
-                "connection_id",
-                "updated_at",
-                "created_at"
-            ]
-        };
+        const schema = import_schema.add("messages","POST");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -214,9 +112,6 @@ describe("POST /messages", () => {
     })
 
     
-
-
-
 })
 
 describe("GET / messages", () => {
@@ -244,54 +139,7 @@ describe("GET / messages", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = {
-
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "send_at": {
-                            "type": "string"
-                        },
-                        "sms_state": {
-                            "type": "string"
-                        },
-                        "email_state": {
-                            "type": "string"
-                        },
-                        "notes": {
-                            "type": "string"
-                        },
-                        "created_at": {
-                            "type": "string"
-                        },
-                        "updated_at": {
-                            "type": "string"
-                        },
-                        "appointment_id": {
-                            "type": "integer"
-                        },
-                        "connection_id": {
-                            "type": "integer"
-                        },
-                        "payment_id": {
-                            "type": "null"
-                        }
-                    }
-
-                }
-            ]
-        };
+        const schema = import_schema.add("messages","GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -328,7 +176,6 @@ describe("GET / messages", () => {
     })
 
 
-
 })
 
 describe("PUT /messages/id", () => {
@@ -360,62 +207,7 @@ describe("PUT /messages/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = {
-  
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "title": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "send_at": {
-                "type": "null"
-              },
-              "sms_state": {
-                "type": "string"
-              },
-              "email_state": {
-                "type": "string"
-              },
-              "notes": {
-                "type": "string"
-              },
-              "created_at": {
-                "type": "string"
-              },
-              "updated_at": {
-                "type": "string"
-              },
-              "appointment_id": {
-                "type": "integer"
-              },
-              "connection_id": {
-                "type": "integer"
-              },
-              "payment_id": {
-                "type": "null"
-              }
-            },
-            "required": [
-              "id",
-              "title",
-              "body",
-              "send_at",
-              "sms_state",
-              "email_state",
-              "notes",
-              "created_at",
-              "updated_at",
-              "appointment_id",
-              "connection_id",
-              "payment_id"
-            ]
-          };
+        const schema = import_schema.add("messages","PUT");
 
         const valid = ajv.validate(schema, this.res.data);
         msg1 = "";
@@ -433,7 +225,6 @@ describe("PUT /messages/id", () => {
 
 
     })
-
 
 
 })
@@ -464,62 +255,7 @@ describe(`GET /messages/id`, () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = {
-
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "title": {
-                "type": "string"
-              },
-              "body": {
-                "type": "string"
-              },
-              "send_at": {
-                "type": "null"
-              },
-              "sms_state": {
-                "type": "string"
-              },
-              "email_state": {
-                "type": "string"
-              },
-              "notes": {
-                "type": "string"
-              },
-              "created_at": {
-                "type": "string"
-              },
-              "updated_at": {
-                "type": "string"
-              },
-              "appointment_id": {
-                "type": "integer"
-              },
-              "connection_id": {
-                "type": "integer"
-              },
-              "payment_id": {
-                "type": "null"
-              }
-            },
-            "required": [
-              "id",
-              "title",
-              "body",
-              "send_at",
-              "sms_state",
-              "email_state",
-              "notes",
-              "created_at",
-              "updated_at",
-              "appointment_id",
-              "connection_id",
-              "payment_id"
-            ]
-          }
+        const schema = import_schema.add("messages","GET_ID");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -569,61 +305,7 @@ describe("DEL /messages/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "send_at": {
-                    "type": "null"
-                },
-                "sms_state": {
-                    "type": "string"
-                },
-                "email_state": {
-                    "type": "string"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "appointment_id": {
-                    "type": "integer"
-                },
-                "connection_id": {
-                    "type": "integer"
-                },
-                "payment_id": {
-                    "type": "null"
-                }
-            },
-            "required": [
-                "id",
-                "title",
-                "body",
-                "send_at",
-                "sms_state",
-                "email_state",
-                "notes",
-                "created_at",
-                "updated_at",
-                "appointment_id",
-                "connection_id",
-                "payment_id"
-            ]
-        };
+        const schema = import_schema.add("messages","DELETE");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -642,7 +324,6 @@ describe("DEL /messages/id", () => {
 
 
     })
-
 
 
 })
@@ -671,54 +352,7 @@ describe("GET /messages", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = {
-
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "send_at": {
-                            "type": "string"
-                        },
-                        "sms_state": {
-                            "type": "string"
-                        },
-                        "email_state": {
-                            "type": "string"
-                        },
-                        "notes": {
-                            "type": "string"
-                        },
-                        "created_at": {
-                            "type": "string"
-                        },
-                        "updated_at": {
-                            "type": "string"
-                        },
-                        "appointment_id": {
-                            "type": "integer"
-                        },
-                        "connection_id": {
-                            "type": "integer"
-                        },
-                        "payment_id": {
-                            "type": "null"
-                        }
-                    }
-
-                }
-            ]
-        };
+        const schema = import_schema.add("messages","GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -754,8 +388,6 @@ describe("GET /messages", () => {
 
 
     })
-
-
 
 
 
