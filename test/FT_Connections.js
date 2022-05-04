@@ -1,7 +1,7 @@
 var Ajv = require("ajv")
 var ajv = new Ajv({ strictTuples: false })
 
-const import_schema = require('./fetch_schema.js');
+const import_schema = require('../schemas/connections_schema.js');
 const assert = require("assert");
 const axios = require("axios").default;
 
@@ -38,7 +38,7 @@ describe("GET /connections", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -95,7 +95,7 @@ describe("POST /connections", () => {
 
     it("Should have the right JSON schema for response.", () => {
 
-        const schema = import_schema.add("connections","POST");
+        const schema = import_schema.addMethod("POST");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -142,7 +142,7 @@ describe("GET /connections", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -217,7 +217,7 @@ describe("PUT /connections/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","PUT");
+        const schema = import_schema.addMethod("PUT");
 
         const valid = ajv.validate(schema, this.res.data);
         msg1 = "";
@@ -266,7 +266,7 @@ describe(`GET /connections/id`, () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","GET_ID");
+        const schema = import_schema.addMethod("GET_ID");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -316,7 +316,7 @@ describe("DEL /connections/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","DELETE");
+        const schema = import_schema.addMethod("DELETE");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -364,7 +364,7 @@ describe("GET /connections", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("connections","GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);

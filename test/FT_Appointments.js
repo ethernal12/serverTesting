@@ -1,7 +1,7 @@
 var Ajv = require("ajv")
 var ajv = new Ajv({ strictTuples: false })
 
-const import_schema = require('./fetch_schema.js');
+const import_schema = require('../schemas/appointments_schema.js');
 const assert = require("assert");
 const axios = require("axios").default;
 
@@ -41,7 +41,7 @@ describe("GET /appointments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "GET");
+        const schema = import_schema.addMethod("GET");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -100,7 +100,7 @@ describe("POST /appointments", () => {
 
     it("Should have the right JSON schema for response.", () => {
 
-        const schema = import_schema.add("appointments", "POST");
+        const schema = import_schema.addMethod("POST");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -147,7 +147,7 @@ describe("GET /appointments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "GET");
+        const schema = import_schema.addMethod("GET");
 
         const valid = ajv.validate(schema, this.res.data);
         let msg1 = "";
@@ -222,7 +222,7 @@ describe("PUT /appointments/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "PUT");
+        const schema = import_schema.addMethod("PUT");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -272,7 +272,7 @@ describe(`GET /appointments/id`, () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "GET_ID");
+        const schema = import_schema.addMethod("GET_ID");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -322,7 +322,7 @@ describe("DEL /appoiontment/id", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "DELETE");
+        const schema = import_schema.addMethod("DELETE");
 
 
         const valid = ajv.validate(schema, this.res.data);
@@ -370,7 +370,7 @@ describe("GET /appointments", () => {
     it("Should have the right JSON schema for response.", () => {
 
 
-        const schema = import_schema.add("appointments", "GET");
+        const schema = import_schema.addMethod("GET");
 
 
         const valid = ajv.validate(schema, this.res.data);
