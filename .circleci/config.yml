@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+ 
+
+jobs:
+  build_and_test:
+    executor: node/default
+    steps:
+      - checkout 
+      - restore_cache:
+              key: npm-cache-v1-{{ checksum "package.json" }}
+      - node/install-packages:
+          pkg-manager: npm
+      - save_cache:
+              key: npm-cache-v1-{{ checksum "package.json" }}
+              paths:
+                - node_modules
+      - run:
+          command: npm test
+          name: Run tests
+      - store_test_results:
+          path: test
+ 
+workflows:
+  test_my_app:
+    jobs:
+      - build_and_test
